@@ -26,10 +26,10 @@ const ContactUsDescription = () => {
         زمان ممکن به شما پاسخ خواهد داد.
       </p>
       <div className="w-full flex gap-8">
-        <Link href={"aboutUs"} className="btn bg-second text-white">
+        <Link href={"/aboutUs"} className="btn bg-second text-white">
           <button>درباره ما</button>
         </Link>
-        <Link href={"products"} className="btn bg-third text-black/40">
+        <Link href={"/products"} className="btn bg-third text-black/40">
           <button>محصولات</button>
         </Link>
       </div>

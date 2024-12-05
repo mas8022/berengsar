@@ -1,9 +1,9 @@
 "use client";
-
 import { useFormik, FormikErrors } from "formik";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import toast from "react-hot-toast";
+import { useSanitizeInput } from "../../../utils/useSanitizeInput";
 
 interface FormValues {
   fullName: string;
@@ -36,8 +36,9 @@ const ContactUsForm: React.FC = () => {
       if (isNaN(Number(values.phone))) {
         errors.phone = "شماره موبایل تان را به درستی وارد کنید";
       }
-      if (!values.message?.trim()) {
-        errors.message = "لطفا پیام خود را وارد کنید";
+      if (values.message?.trim().length < 10) {
+        errors.message =
+          "لطفا پیام خود را وارد کنید و حداقل ده کاراکتر داشته باشد ";
       }
       return errors;
     },
@@ -45,7 +46,7 @@ const ContactUsForm: React.FC = () => {
       setLoading(true);
       const formData = new FormData();
 
-      formData.append("fullname", values.fullName);
+      formData.append("fullName", values.fullName);
       formData.append("email", values.email);
       formData.append("phone", values.phone);
       formData.append("message", values.message);
@@ -89,7 +90,10 @@ const ContactUsForm: React.FC = () => {
         name="fullName"
         placeholder="نام و نام خانوادگی"
         className="w-full input"
-        onChange={formik.handleChange}
+        onChange={(e) => {
+          const sanitizedValue = useSanitizeInput(e.target.value);
+          formik.setFieldValue("fullName", sanitizedValue);
+        }}
         onBlur={formik.handleBlur}
         value={formik.values.fullName}
       />
@@ -101,7 +105,10 @@ const ContactUsForm: React.FC = () => {
         name="phone"
         placeholder="شماره تماس"
         className="w-full input"
-        onChange={formik.handleChange}
+        onChange={(e) => {
+          const sanitizedValue = useSanitizeInput(e.target.value);
+          formik.setFieldValue("phone", sanitizedValue);
+        }}
         onBlur={formik.handleBlur}
         value={formik.values.phone}
       />
@@ -113,7 +120,10 @@ const ContactUsForm: React.FC = () => {
         name="email"
         placeholder="ایمیل"
         className="w-full input"
-        onChange={formik.handleChange}
+        onChange={(e) => {
+          const sanitizedValue = useSanitizeInput(e.target.value);
+          formik.setFieldValue("email", sanitizedValue);
+        }}
         onBlur={formik.handleBlur}
         value={formik.values.email}
       />
@@ -123,7 +133,10 @@ const ContactUsForm: React.FC = () => {
       <textarea
         name="message"
         placeholder="سوالتان را بفرمایید..."
-        onChange={formik.handleChange}
+        onChange={(e) => {
+          const sanitizedValue = useSanitizeInput(e.target.value);
+          formik.setFieldValue("message", sanitizedValue);
+        }}
         onBlur={formik.handleBlur}
         value={formik.values.message}
         className="w-full min-h-40 input pt-3"
