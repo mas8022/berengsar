@@ -5,7 +5,7 @@ import userModel from "../models/user.js";
 import connectToDb from "../configs/db.ts";
 
 async function ResetToken() {
-  const refreshToken = await cookies().get("refresh-token")?.value;
+  const refreshToken = (await cookies()).get("refresh-token")?.value;
   if (!refreshToken) {
     return redirect("/login");
   }
@@ -27,7 +27,7 @@ async function ResetToken() {
   }
 
   const userRoll = user?.roll;
-  const token = await cookies().get("token")?.value;
+  const token = (await cookies()).get("token")?.value;
   if (token) {
     const validationToken = verifyToken(token, process.env.privateKey);
     if (validationToken) {
@@ -36,7 +36,7 @@ async function ResetToken() {
   }
 
   const newToken = generateToken({ userEmail }, process.env.privateKey);
-  await cookies().set("token", newToken, {
+  (await cookies()).set("token", newToken, {
     httpOnly: true,
     path: "/",
   });

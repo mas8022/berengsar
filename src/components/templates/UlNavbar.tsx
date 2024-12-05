@@ -13,7 +13,7 @@ const UlNavbar = () => {
         <Link href={'/'}>خانه</Link>
         <li>محصولات</li>
         <li>درباره ما</li>
-        <li>تماس باما</li>
+        <Link href={'/contactUs'}>تماس باما</Link>
       </ul>
 
       {/* ul in mobile screen */}

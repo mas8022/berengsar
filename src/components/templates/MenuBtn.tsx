@@ -11,7 +11,7 @@ import Image from "next/image";
 
 const MenuBtn = () => {
   return (
-    <Side cls="sm:hidden" sideBarName="navbarMenuSidebar">
+    <Side cls="z-20 sm:hidden" sideBarName="navbarMenuSidebar">
       <div className="w-full h-full p-8 flex flex-col justify-between bg-[#84B8AC] shadow-lg">
         {/* سربرگ */}
         <div className="w-full flex flex-col items-center gap-4">

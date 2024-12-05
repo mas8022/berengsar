@@ -31,7 +31,7 @@ const Side: React.FC<SideProps> = ({ children, sideBarName, cls = "" }) => {
 
   return (
     <div className={`${cls}`}>
-      <div className="size-14 center bg-black/10 rounded-full">
+      <div className="size-14 center bg-second rounded-full">
         <HiMenu
           onClick={() => setSideFlag(true)}
           className="text-white text-4xl"
