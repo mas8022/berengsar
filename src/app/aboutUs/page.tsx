@@ -2,13 +2,18 @@
 import React, { memo } from "react";
 import Image from "next/image";
 import Hr from "@/components/modules/Hr";
+import Aos from "../../../utils/Aos";
 
 const page = () => {
   return (
     <div className="w-full flex flex-col px-6 sm:px-24 sm:pt-0 p-20">
+      <Aos />
       <Hr />
       <Hr />
-      <div className="w-full flex items-start justify-between gap-40 mb-20">
+      <div
+        data-aos="fade-left"
+        className="w-full flex items-start justify-between gap-40 mb-20"
+      >
         <div className="w-full child:text-black">
           <p className="lg:text-[3rem] text-[2rem] font-bold">
             اصالت برنج مازندرانی
@@ -39,7 +44,10 @@ const page = () => {
           className="w-1/5 object-cover lg:block hidden"
         />
       </div>
-      <div className="w-full flex items-center justify-between gap-32">
+      <div
+        data-aos="fade-right"
+        className="w-full flex items-center justify-between gap-32"
+      >
         <Image
           src={"/images/rices.png"}
           width={500}
