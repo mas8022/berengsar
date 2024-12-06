@@ -9,8 +9,8 @@
     font-display: swap;
   }
   @font-face {
-    font-family: thinFont;
-    src: local(thinFont), url(../../public/fonts/BYekan/BYekan+.ttf);
+    font-family: light;
+    src: local(light), url(../../public/fonts/BYekan/BYekan+.ttf);
     font-display: swap;
   }
 
@@ -49,4 +49,5 @@
     0px 1px 2px rgba(255, 255, 255, 0.3), 
     0px 3px 5px rgba(0, 0, 0, 0.1); 
   }
+
 }

@@ -31,7 +31,7 @@ export default {
       },
       fontFamily: {
         medium: "regular",
-        thinFont: "thinFont",
+        light: "light",
       },
     },
   },
