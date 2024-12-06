@@ -1,16 +1,14 @@
 "use client";
 import React from "react";
 import Aos from "../../../utils/Aos";
-import MainSearch from "../modules/MainSearch";
 import CategoryContainer from "./CategoryContainer";
 
 const Landing = () => {
   return (
     <div
-      className="w-full h-screen image center px-20"
-      style={{ backgroundImage: "url('/images/bg.png')" }}
+      className="w-full h-screen center px-20"
     >
-      <div className="center flex-col gap-14">
+      <div className="center flex-col gap-14 -mt-10">
         <Aos />
         <h1
           data-aos="fade-up"

@@ -1,9 +1,17 @@
-import React from 'react'
+import React from "react";
+import CategoryBox from "../modules/CategoryBox";
 
 const CategoryContainer = () => {
   return (
-    <div className='w-full h-96 p-10 rounded-3xl bg-black/10'></div>
-  )
-}
+    <div className="w-full flex items-center -mt-20">
+      <div className="flex flex-wrap items-center justify-center h-96 p-10 rounded-3xl gap-8">
+        <CategoryBox />
+        <CategoryBox />
+        <CategoryBox />
+        <CategoryBox />
+      </div>
+    </div>
+  );
+};
 
-export default CategoryContainer
+export default CategoryContainer;
