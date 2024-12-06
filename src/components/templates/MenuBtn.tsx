@@ -1,7 +1,6 @@
 import React from "react";
 import {
   FaHome,
-  FaShoppingBag,
   FaInfoCircle,
   FaPhone,
   FaUserCircle,
@@ -31,9 +30,6 @@ const MenuBtn = () => {
             <FaHome className="h-6 w-6 mr-4" /> خانه
           </li>
           <li className="flex items-center gap-4 text-white font-semibold text-xl hover:text-[#D8E27C] hover:bg-white/20 hover:scale-110 transition-all duration-300 ease-in-out p-4 rounded-lg cursor-pointer">
-            <FaShoppingBag className="h-6 w-6 mr-4" /> محصولات
-          </li>
-          <li className="flex items-center gap-4 text-white font-semibold text-xl hover:text-[#D8E27C] hover:bg-white/20 hover:scale-110 transition-all duration-300 ease-in-out p-4 rounded-lg cursor-pointer">
             <FaInfoCircle className="h-6 w-6 mr-4" /> درباره ما
           </li>
           <li className="flex items-center gap-4 text-white font-semibold text-xl hover:text-[#D8E27C] hover:bg-white/20 hover:scale-110 transition-all duration-300 ease-in-out p-4 rounded-lg cursor-pointer">
@@ -46,7 +42,7 @@ const MenuBtn = () => {
 
         {/* فوتر */}
         <div className="text-sm text-white/90 font-light text-center mt-6 border-t-2 border-t-white/50 pt-4">
-          © 2024 برنج سار
+          © 2024 برنجسار
           <br />
           تمامی حقوق محفوظ است.
         </div>

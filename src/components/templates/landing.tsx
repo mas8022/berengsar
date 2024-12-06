@@ -2,6 +2,7 @@
 import React from "react";
 import Aos from "../../../utils/Aos";
 import MainSearch from "../modules/MainSearch";
+import CategoryContainer from "./CategoryContainer";
 
 const Landing = () => {
   return (
@@ -18,7 +19,6 @@ const Landing = () => {
         >
           فروش برنج مازندرانی با کیفیت
         </h1>
-        <MainSearch/>
         <p
           data-aos="fade-up"
           data-aos-duration="2000"
@@ -27,6 +27,7 @@ const Landing = () => {
           برنج‌های مازندرانی مستقیم از تولیدکننده به خانه شما می‌آید. همین حالا
           سفارش دهید و لذت برنج مازندرانی را بچشید
         </p>
+        <CategoryContainer />
       </div>
     </div>
   );

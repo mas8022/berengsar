@@ -1,6 +1,5 @@
 import Image from "next/image";
 import React from "react";
-import InputSearchNav from "./InputSearchNavbar";
 import ProfileBtn from "./ProfileBtn";
 import UlNavbar from "./UlNavbar";
 import Link from "next/link";
@@ -14,7 +13,6 @@ const Navbar = () => {
         <UlNavbar />
 
         <div className="h-full flex items-center justify-end gap-2 sm:gap-4">
-          <InputSearchNav />
           <ProfileBtn />
           <Link href={"/"}>
             <Image
