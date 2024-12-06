@@ -5,7 +5,7 @@ import FooterCommentBox from "./FooterCommentBox";
 
 const Footer = () => {
   return (
-    <div className="w-full flex flex-col items-center bg-gradient-to-b to-[#84B8AC] from-[#D8E27C] footer-shadow">
+    <div className="w-full flex flex-col items-center bg-gradient-to-b from-[#D8E27C] to-[#84B8AC] footer-shadow">
       <div className="w-full h-auto lg:h-[42rem] px-6 sm:px-[5rem] lg:px-[10rem] xl:px-[15rem] flex flex-col md:flex-row justify-between py-20 gap-16 lg:gap-8">
         <div className="w-full lg:w-1/2 h-full flex flex-col justify-between gap-8 lg:gap-16">
           <div className="flex gap-20">

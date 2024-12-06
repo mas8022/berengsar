@@ -6,7 +6,7 @@ import CategoryContainer from "./CategoryContainer";
 const Landing = () => {
   return (
     <div
-      className="w-full h-screen center px-20"
+      className="w-full h-screen flex flex-col items-center px-20 pt-56"
     >
       <div className="center flex-col gap-14 -mt-10">
         <Aos />
