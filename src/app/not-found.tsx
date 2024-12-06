@@ -1,10 +1,9 @@
-import MainSearch from "@/components/modules/MainSearch";
 import React from "react";
 import Aos from "../../utils/Aos";
 
 const NotFoundPage = () => {
   return (
-    <div className="w-full h-screen flex flex-col items-center gap-28 pt-24 px-6">
+    <div className="w-full h-screen flex flex-col items-center gap-28 pt-40 px-6">
       <Aos />
       <p
         data-aos="fade-up"
@@ -21,7 +20,6 @@ const NotFoundPage = () => {
         این صفحه وجود ندارد
       </p>
 
-      <MainSearch cls={"!w-40rem !bg-second/90 !font-light"} />
     </div>
   );
 };
