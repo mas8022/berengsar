@@ -6,38 +6,23 @@ import FooterCommentBox from "./FooterCommentBox";
 const Footer = () => {
   return (
     <div className="w-full flex flex-col items-center bg-gradient-to-b from-[#D8E27C] to-[#84B8AC] footer-shadow">
-      <div className="w-full h-auto lg:h-[42rem] px-6 sm:px-[5rem] lg:px-[10rem] xl:px-[15rem] flex flex-col md:flex-row justify-between py-20 gap-16 lg:gap-8">
-        <div className="w-full lg:w-1/2 h-full flex flex-col justify-between gap-8 lg:gap-16">
-          <div className="flex gap-20">
-            <ul className="flex flex-col">
+      <div className="w-full h-auto lg:h-[42rem] px-6 sm:px-[5rem] lg:px-[3rem] xl:px-[15rem] flex flex-col mmd:flex-row justify-between items-center mmd:items-start py-20 gap-16 lg:gap-8">
+        <div className="w-full h-full flex flex-col justify-between gap-8 lg:gap-16">
+          <div className="w-full flex flex-wrap gap-20 mmd:justify-start sm:justify-center justify-start">
+            <ul className="w-96 flex flex-col">
               <p className="text-[1.7rem] lg:text-[2rem] border-b-[1px] border-black/50 mb-4">
-                دسترسی سریع
+                نشانی و ادرس
               </p>
-              <Link
-                href={"/"}
-                className="text-[1.4rem] lg:text-[1.7rem] text-black/90 cursor-pointer active:text-black/20 font-light"
-              >
-                خانه
-              </Link>
-
-              <Link
-                href={"/contactUs"}
-                className="text-[1.4rem] lg:text-[1.7rem] text-black/90 cursor-pointer active:text-black/20 font-light"
-              >
-                تماس با ما
-              </Link>
-              <Link
-                href={"/aboutUs"}
-                className="text-[1.4rem] lg:text-[1.7rem] text-black/90 cursor-pointer active:text-black/20 font-light"
-              >
-                درباره ما
-              </Link>
-              <Link
-                href={"/rule"}
-                className="text-[1.4rem] lg:text-[1.7rem] text-black/90 cursor-pointer active:text-black/20 font-light"
-              >
-                قوانین و مقررات
-              </Link>
+              <li className="mb-4 text-[1.4rem] lg:text-[1.7rem] text-black/90 cursor-pointer active:text-black/20 font-light">
+                شرکت ما به صورت انلاین فعالیت می کند و به دلیل تازه تاسیس بودن
+                اداره ای در حال حاضر برایش وجود ندارد
+              </li>
+              <li className="text-[1.4rem] lg:text-[1.7rem] text-black/90 cursor-pointer active:text-black/20 font-light">
+                0911 318 5137
+              </li>
+              <li className="text-[1.4rem] lg:text-[1.7rem] text-black/90 cursor-pointer active:text-black/20 font-light">
+                0935 646 3352
+              </li>
             </ul>
             <ul className="flex flex-col">
               <p className="text-[1.7rem] lg:text-[2rem] border-b-[1px] border-black/50 mb-4">
@@ -68,8 +53,38 @@ const Footer = () => {
                 برنج هاشمی
               </Link>
             </ul>
+            <ul className="flex flex-col">
+              <p className="text-[1.7rem] lg:text-[2rem] border-b-[1px] border-black/50 mb-4">
+                دسترسی سریع
+              </p>
+              <Link
+                href={"/"}
+                className="text-[1.4rem] lg:text-[1.7rem] text-black/90 cursor-pointer active:text-black/20 font-light"
+              >
+                خانه
+              </Link>
+
+              <Link
+                href={"/contactUs"}
+                className="text-[1.4rem] lg:text-[1.7rem] text-black/90 cursor-pointer active:text-black/20 font-light"
+              >
+                تماس با ما
+              </Link>
+              <Link
+                href={"/aboutUs"}
+                className="text-[1.4rem] lg:text-[1.7rem] text-black/90 cursor-pointer active:text-black/20 font-light"
+              >
+                درباره ما
+              </Link>
+              <Link
+                href={"/rule"}
+                className="text-[1.4rem] lg:text-[1.7rem] text-black/90 cursor-pointer active:text-black/20 font-light"
+              >
+                قوانین و مقررات
+              </Link>
+            </ul>
           </div>
-          <div className="flex gap-8">
+          <div className="flex sm:flex-row flex-row-reverse gap-8">
             <Image
               src={"/images/logo.png"}
               placeholder="blur"
@@ -90,7 +105,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="w-full lg:w-1/2 h-[30rem] lg:h-full flex flex-col justify-between gap-10">
+        <div className="w-[50rem] max-[520px]:w-full h-[30rem] lg:h-full flex flex-col justify-between gap-10">
           <FooterCommentBox />
 
           <div className="flex justify-end gap-4">
