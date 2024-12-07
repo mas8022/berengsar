@@ -82,7 +82,7 @@ const Page: React.FC = () => {
   return (
     <div className="w-full h-screen center lgg:p-0 py-32 !pb-36 px-7">
       <form
-        className="w-[40rem] bg-second/20 rounded-3xl flex flex-col gap-7 p-[2rem] sm:p-[3rem] md:sm:p-[5rem] py-[4rem] items-center justify-center"
+        className="w-[40rem] bg-second/20 rounded-3xl flex flex-col gap-7 p-8 sm:p-[3rem] md:sm:p-[5rem] py-[4rem] items-center justify-center"
         onSubmit={signUp.handleSubmit}
       >
         <input

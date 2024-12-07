@@ -50,7 +50,6 @@ export async function POST(req) {
     });
 
     revalidatePath("/", "layout");
-    console.log("yes");
 
     return Response.json({
       message: "با موفقیت وارد حساب قبل خود شدید",

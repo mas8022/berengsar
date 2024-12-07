@@ -44,10 +44,7 @@ export default function Login() {
             body: JSON.stringify(values),
           });
 
-          
-
           const result = await response.json();
-          console.log(result);
 
           setLoading(false);
 

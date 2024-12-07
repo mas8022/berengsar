@@ -9,7 +9,6 @@ async function connectToDb(): Promise<string> {
     await mongoose.connect("mongodb://localhost:27017/berengsar");
     return "Connected to the database.";
   } catch (error) {
-    console.error("Failed to connect to the database.");
     throw new Error(error instanceof Error ? error.message : "Unknown error occurred.");
   }
 }

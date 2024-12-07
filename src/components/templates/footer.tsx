@@ -98,7 +98,7 @@ const Footer = () => {
               <Image
                 src={"/images/enamad.png"}
                 placeholder="blur"
-                blurDataURL={"/images/480687.png"}
+                blurDataURL={"/images/enamad.png"}
                 width={100}
                 height={100}
                 alt="نماد اعتماد الکترونیک"
@@ -109,7 +109,7 @@ const Footer = () => {
               <Image
                 src={"/images/neshan.jpg"}
                 placeholder="blur"
-                blurDataURL={"/images/1-min.jpg"}
+                blurDataURL={"/images/neshan.jpg"}
                 width={100}
                 height={100}
                 alt="ساماندهی"

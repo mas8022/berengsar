@@ -29,7 +29,7 @@ const ContactUsDescription = () => {
         <Link href={"/aboutUs"} className="btn bg-second text-white">
           <button>درباره ما</button>
         </Link>
-        <Link href={"/products"} className="btn bg-third text-black/40">
+        <Link href={"/"} className="btn bg-third text-black/40">
           <button>محصولات</button>
         </Link>
       </div>
