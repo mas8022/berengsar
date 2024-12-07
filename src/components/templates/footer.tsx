@@ -18,10 +18,10 @@ const Footer = () => {
                 اداره ای در حال حاضر برایش وجود ندارد
               </li>
               <li className="text-[1.4rem] lg:text-[1.7rem] text-black/90 cursor-pointer active:text-black/20 font-light">
-                0911 318 5137
+                0911-318-5137
               </li>
               <li className="text-[1.4rem] lg:text-[1.7rem] text-black/90 cursor-pointer active:text-black/20 font-light">
-                0935 646 3352
+                0935-646-3352
               </li>
             </ul>
             <ul className="flex flex-col">
@@ -44,13 +44,13 @@ const Footer = () => {
                 href={"/products/برنج هاشمی"}
                 className="text-[1.4rem] lg:text-[1.7rem] text-black/90 cursor-pointer active:text-black/20 font-light"
               >
-                برنج هاشمی
+                برنج امراللهی
               </Link>
               <Link
                 href={"/products/برنج هاشمی"}
                 className="text-[1.4rem] lg:text-[1.7rem] text-black/90 cursor-pointer active:text-black/20 font-light"
               >
-                برنج هاشمی
+                برنج بینام
               </Link>
             </ul>
             <ul className="flex flex-col">
