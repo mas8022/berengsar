@@ -43,7 +43,7 @@ const MenuBtn = () => {
                     d="m19.5 8.25-7.5 7.5-7.5-7.5"
                   />
                 </svg>
-                <p className="text-first text-xl">محصولا</p>
+                <p className="text-first text-xl">محصولات</p>
               </div>
               <ul
                 onClick={(e) => e.stopPropagation()}
