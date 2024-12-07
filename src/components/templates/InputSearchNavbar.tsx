@@ -1,6 +1,6 @@
 "use client";
 import { useRouter } from "next/navigation";
-import useToggle from "../../../utils/toggle";
+import useToggle from "../../../utils/useToggle";
 import React, { useRef, useState } from "react";
 import { useSanitizeInput } from "../../../utils/useSanitizeInput";
 
@@ -10,7 +10,7 @@ const InputSearchNav = () => {
   const [search, setSearch] = useState("");
   const searchIcon = useRef<HTMLInputElement | null>(null);
 
-  const sanitizedSearch = useSanitizeInput(search);
+  const sanitizedSearch = useSanitizeInput(search) || "";
 
   const sendDataUrlSearch = () => {
     if (sanitizedSearch.trim()) {
@@ -73,4 +73,5 @@ const InputSearchNav = () => {
     </div>
   );
 };
+
 export default InputSearchNav;

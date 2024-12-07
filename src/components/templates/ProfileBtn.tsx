@@ -41,7 +41,7 @@ const ProfileBtn = () => {
               <div className="flex p-[9px] sm:p-[10px] rounded-full bg-second items-center justify-center cursor-pointer">
                 <FaUser
                   className="size-7 sm:size-9 cursor-pointer stroke-white"
-                  style={{ strokeWidth: 20, fill: "none" }}
+                  style={{ strokeWidth: 40, fill: "none" }}
                 />
               </div>
             </div>

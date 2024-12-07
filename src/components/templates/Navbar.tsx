@@ -3,6 +3,7 @@ import React from "react";
 import ProfileBtn from "./ProfileBtn";
 import UlNavbar from "./UlNavbar";
 import Link from "next/link";
+import BasketBtn from "./BasketBtn";
 
 const Navbar = () => {
   return (
@@ -13,6 +14,7 @@ const Navbar = () => {
         <UlNavbar />
 
         <div className="h-full flex items-center justify-end gap-2 sm:gap-4">
+          <BasketBtn/>
           <ProfileBtn />
           <Link href={"/"}>
             <Image
