@@ -51,10 +51,18 @@ const MenuBtn = () => {
                   isOpen ? "!h-auto  pt-4 gap-2" : "!h-0"
                 }`}
               >
-                <Link href={"/products/طارم"}>طارم</Link>
-                <Link href={"/products/هاشمی"}>هاشمی</Link>
-                <Link href={"/products/امراللهی"}>امراللهی</Link>
-                <Link href={"/products/بینام"}>بینام</Link>
+                <Link href={"/buy/طارم هاشمی پنج کیلو"}>
+                  طارم هاشمی پنج کیلو
+                </Link>
+                <Link href={"/buy/طارم هاشمی ده کیلو"}>
+                  طارم هاشمی ده کیلو
+                </Link>
+                <Link href={"/buy/طارم هاشمی پانزده کیلو"}>
+                  طارم هاشمی پانزده کیلو
+                </Link>
+                <Link href={"/buy/طارم هاشمی بیست کیلو"}>
+                  طارم هاشمی بیست کیلو
+                </Link>
               </ul>
             </ul>
 

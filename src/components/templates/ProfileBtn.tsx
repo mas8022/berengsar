@@ -46,13 +46,13 @@ const ProfileBtn = () => {
               </div>
             </div>
             <div
-              className={`z-[10000] flex flex-col gap-10 items-center p-10 absolute top-24 -left-20 w-[30rem] bg-first border-y-2 border-second rounded-3xl transition-all duration-300 ${
+              className={`z-[10000] flex flex-col gap-10 items-center p-10 absolute top-24 -left-20 w-[30rem] bg-second border-y-2 border-third rounded-3xl transition-all duration-300 ${
                 slideProfile
                   ? "visible opacity-100 mt-4"
                   : "opacity-0 invisible mt-0"
               }`}
             >
-              <div className="w-full flex flex-col gap-6 font-light child:text-[1.4rem] child:font-light child:pb-2 child:text-black/70 bg-white/0 child:flex child:items-center child:justify-between child:border-b-[1px] child:border-b-black/10 dark:child:border-b-[#cbd5e1]/40 child:rounded-b-md child:px-2">
+              <div className="w-full flex flex-col gap-6 font-bold child:text-[1.4rem] child:font-light child:pb-2 child:text-white bg-white/0 child:flex child:items-center child:justify-between child:border-b-[1px] child:border-b-black/10 dark:child:border-b-[#cbd5e1]/40 child:rounded-b-md child:px-2">
                 {roll === "ADMIN" ? (
                   <Link href="/cms" onClick={() => setSlideProfile(false)}>
                     پیشخوان مدیریت
@@ -114,7 +114,7 @@ const ProfileBtn = () => {
                     viewBox="0 0 24 24"
                     strokeWidth="1.5"
                     stroke="currentColor"
-                    className="size-10 stroke-red-600"
+                    className="size-10 stroke-red-500"
                   >
                     <path
                       strokeLinecap="round"

@@ -29,28 +29,28 @@ const Footer = () => {
                 محصولات
               </p>
               <Link
-                href={"/products/برنج طارم"}
+                href={"/buy/طارم هاشمی پنج کیلو"}
                 className="text-[1.4rem] lg:text-[1.7rem] text-black/90 cursor-pointer active:text-black/20 font-light"
               >
-                برنج طارم
+                طارم هاشمی پنج کیلو
               </Link>
               <Link
-                href={"/products/برنج هاشمی"}
+                href={"/buy/طارم هاشمی ده کیلو"}
                 className="text-[1.4rem] lg:text-[1.7rem] text-black/90 cursor-pointer active:text-black/20 font-light"
               >
-                برنج هاشمی
+                طارم هاشمی ده کیلو
               </Link>
               <Link
-                href={"/products/برنج هاشمی"}
+                href={"/buy/طارم هاشمی پانزده کیلو"}
                 className="text-[1.4rem] lg:text-[1.7rem] text-black/90 cursor-pointer active:text-black/20 font-light"
               >
-                برنج امراللهی
+                طارم هاشمی پانزده کیلو
               </Link>
               <Link
-                href={"/products/برنج هاشمی"}
+                href={"/buy/طارم هاشمی بیست کیلو"}
                 className="text-[1.4rem] lg:text-[1.7rem] text-black/90 cursor-pointer active:text-black/20 font-light"
               >
-                برنج بینام
+                طارم هاشمی بیست کیلو
               </Link>
             </ul>
             <ul className="flex flex-col">
