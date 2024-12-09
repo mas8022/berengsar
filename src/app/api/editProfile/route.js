@@ -9,7 +9,7 @@ export async function POST(req) {
     const email = formData.get("email");
     const phone = formData.get("phone");
 
-    console.log({ fullName, email, phone });
+    // console.log({ fullName, email, phone });
     connectToDb();
     await userModel.findOneAndUpdate({ email }, { fullName, email, phone });
 

@@ -150,7 +150,7 @@ const Page: React.FC = () => {
           <p className="text-[1.2rem] text-black/30">
             آیا موافق با{" "}
             <Link
-              href={"/regulation"}
+              href={"/rule"}
               className="text-blue-600/60 font-bold text-[1.4rem]"
             >
               قوانین

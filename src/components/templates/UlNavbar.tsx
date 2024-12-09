@@ -27,7 +27,7 @@ const UlNavbar = () => {
             />
           </svg>
 
-          <ul className="w-[23rem] absolute right-0 rounded-xl top-full mt-4 bg-second shadow-md p-6 flex flex-col gap-y-1 border-y-2 border-y-third invisible opacity-0 group-hover:visible group-hover:opacity-100 group-hover:mt-2 child:cursor-pointer child-hover:bg-black/10 child:rounded-lg child:pr-4 child:h-12 child:flex child:items-center pb-16 delay-100 child:text-first">
+          <ul className="w-[23rem] absolute right-0 rounded-xl top-12 mt-4 bg-second shadow-md p-6 flex flex-col gap-y-1 border-y-2 border-y-third invisible opacity-0 group-hover:visible group-hover:opacity-100 group-hover:mt-2 child:cursor-pointer child-hover:bg-black/10 child:rounded-lg child:pr-4 child:h-12 child:flex child:items-center pb-16 delay-100 child:text-first">
             <Link
               href={"/buy/طارم هاشمی پنج کیلو"}
               className="text-[1.4rem] lg:text-[1.7rem] text-black/90 cursor-pointer active:text-black/20 font-light"
