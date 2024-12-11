@@ -1,20 +1,23 @@
 import Title from "@/components/modules/Title";
 import BuyForm from "@/components/templates/BuyForm";
 import Image from "next/image";
-import React from "react";
+import React, { use } from "react";
 import { isMe } from "../../../../utils/me";
 import PermissionAlert from "@/components/modules/PermissionAlert";
 
 const Buy = async ({ params }: { params: { name: string } }) => {
-  const name = decodeURIComponent(params.name);
+  let { name } = await params;
+  name = decodeURIComponent(name);
+
   const permission = await isMe();
-  console.log("me permission: ", permission);
 
   return permission ? (
     <div className="w-full sm:h-screen h-auto md:px-40 px-8 sm:pt-56 pt-40 pb-24 flex justify-between gap-24">
       <div className="w-full flex flex-col gap-10">
         <Title title="اطلاعات درخواست سفارش" />
-        <p className="xxd:hidden text-center font-bold text-emerald-900/70 text-3xl">{name}</p>
+        <p className="xxd:hidden text-center font-bold text-emerald-900/70 text-3xl">
+          {name}
+        </p>
         <BuyForm />
       </div>
 

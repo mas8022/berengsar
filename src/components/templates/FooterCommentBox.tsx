@@ -1,5 +1,4 @@
 "use client";
-
 import React, { useState } from "react";
 import swal from "sweetalert";
 import toast from "react-hot-toast";
@@ -22,6 +21,7 @@ const FooterCommentBox: React.FC = () => {
               icon: "success",
               title: "با موفقیت ارسال شد",
               text: result.message,
+     
             });
             setComment("");
           } else if (result.status === 401) {

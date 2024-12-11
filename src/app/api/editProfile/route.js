@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import connectToDb from "../../../../configs/db.ts";
 import userModel from "../../../../models/user";
+
 export async function POST(req) {
   try {
     const formData = await req.formData();
@@ -9,7 +10,6 @@ export async function POST(req) {
     const email = formData.get("email");
     const phone = formData.get("phone");
 
-    // console.log({ fullName, email, phone });
     connectToDb();
     await userModel.findOneAndUpdate({ email }, { fullName, email, phone });
 

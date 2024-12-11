@@ -18,6 +18,7 @@ export default {
         mmd: "940px",
         ld: "1000px",
         lg: "1024px",
+        llg: "1060px",
         lgg: "1112px",
         xl: "1280px",
         xxl: "1312px",
@@ -27,7 +28,6 @@ export default {
         first: "#f3f3f5",
         second: "#84B8AC",
         third: "#D8E27C",
-        forth: "#000",
       },
       fontFamily: {
         medium: "regular",

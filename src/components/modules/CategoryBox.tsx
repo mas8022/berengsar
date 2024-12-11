@@ -11,15 +11,15 @@ const CategoryBox = ({ name }: { name: string }) => {
       shadow={false}
       duration={100}
     >
-      <div className="w-96 h-[35rem] p-8 mb-20 rounded-3xl bg-black/10 overflow-hidden flex flex-col items-center justify-between">
+      <div className="llg:w-96 w-64 llg:h-[35rem] llg:p-8 p-4 llg:mb-20 rounded-3xl bg-black/10 overflow-hidden flex flex-col items-center justify-between llg:gap-0 gap-2">
         <Image
           src={"/images/test.png"}
           width={300}
           height={300}
           alt="عکس محصول"
-          className="w-full h-80 object-cover rounded-xl"
+          className="w-full llg:h-80 object-cover rounded-xl"
         />
-        <h2 className="w-full text-center text-3xl font-bold tsh backdrop-blur-3xl rounded-full px-6 py-4 text-first bg-black/10">
+        <h2 className="w-full text-center text-xl font-bold tsh backdrop-blur-3xl rounded-full px-6 py-4 text-first bg-black/10">
           {name}
         </h2>
         <Link href={`/buy/${name}`} className="w-full btn bg-green-500 text-first text-3xl center">

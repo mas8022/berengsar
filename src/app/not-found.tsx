@@ -1,5 +1,6 @@
 import React from "react";
 import Aos from "../../utils/Aos";
+import Link from "next/link";
 
 const NotFoundPage = () => {
   return (
@@ -20,6 +21,14 @@ const NotFoundPage = () => {
         این صفحه وجود ندارد
       </p>
 
+      <Link
+        data-aos="fade-up"
+        data-aos-duration="1200"
+        href={"/"}
+        className="btn bg-second text-first"
+      >
+        تماشا محصولات
+      </Link>
     </div>
   );
 };

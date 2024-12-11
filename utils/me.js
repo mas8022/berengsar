@@ -66,8 +66,8 @@ async function isMe() {
     const user = await userModel.findOne(
       {
         $or: [
+          { email: tokenPayload?.userEmail },
           { email: tokenPayload?.email },
-          { email: tokenPayload?.email.email },
         ],
       },
       "_id"

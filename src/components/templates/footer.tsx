@@ -41,16 +41,16 @@ const Footer = () => {
                 طارم هاشمی ده کیلو
               </Link>
               <Link
-                href={"/buy/طارم هاشمی پانزده کیلو"}
+                href={"/buy/طارم بینام پنج کیلو"}
                 className="text-[1.4rem] lg:text-[1.7rem] text-black/90 cursor-pointer active:text-black/20 font-light"
               >
-                طارم هاشمی پانزده کیلو
+                طارم بینام پنج کیلو
               </Link>
               <Link
-                href={"/buy/طارم هاشمی بیست کیلو"}
+                href={"/buy/طارم بینام ده کیلو"}
                 className="text-[1.4rem] lg:text-[1.7rem] text-black/90 cursor-pointer active:text-black/20 font-light"
               >
-                طارم هاشمی بیست کیلو
+                طارم بینام ده کیلو
               </Link>
             </ul>
             <ul className="flex flex-col">
