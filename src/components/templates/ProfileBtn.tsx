@@ -89,7 +89,7 @@ const ProfileBtn = () => {
                     />
                   </svg>
                 </Link>
-                <Link href={"/myCourses"}>
+                <Link href={"/orders"}>
                   سفارشات من
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
