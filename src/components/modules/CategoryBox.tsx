@@ -19,7 +19,7 @@ const CategoryBox = ({ name }: { name: string }) => {
           alt="عکس محصول"
           className="w-full llg:h-80 object-cover rounded-xl"
         />
-        <h2 className="w-full text-center text-xl font-bold tsh backdrop-blur-3xl rounded-full px-6 py-4 text-first bg-black/10">
+        <h2 className="w-full text-center llg:text-3xl text-xl font-bold tsh backdrop-blur-3xl rounded-full px-6 py-4 text-first bg-black/10">
           {name}
         </h2>
         <Link href={`/buy/${name}`} className="w-full btn bg-green-500 text-first text-3xl center">

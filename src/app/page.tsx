@@ -7,7 +7,7 @@ import { Ue } from "../../utils/ultraElem";
 export default async function Home() {
   connectToDb();
   const siteImprovementComments = await siteImprovementCommentsModel
-    .find({ publish: false }, "comment")
+    .find({ publish: false }, "comment createdAt")
     .populate("user", "fullName")
     .sort({ _id: -1 })
     .limit(6)

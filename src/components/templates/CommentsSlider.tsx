@@ -15,6 +15,8 @@ interface ISiteImprovementComment extends Document {
   _id: Schema.Types.ObjectId;
   comment: string;
   user: IUser;
+  createdAt: Date;
+
 }
 
 const CommentsSlider = ({

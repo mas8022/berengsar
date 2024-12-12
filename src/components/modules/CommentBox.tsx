@@ -1,7 +1,5 @@
 "use client";
 import { Schema } from "mongoose";
-import Image from "next/image";
-import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 
@@ -17,11 +15,13 @@ const CommentBox = ({
     _id: Schema.Types.ObjectId;
     comment: string;
     user: IUser;
+    createdAt: Date;
   };
 }) => {
   const [likes, setLikes] = useState<number>(0);
   const [disLikes, setDisLikes] = useState<number>(0);
-  const { _id, comment, user } = data;
+  const { _id, comment, user, createdAt } = data;
+  const date = new Date(createdAt).toLocaleDateString("fa-IR");
 
   const getLikeAndDisLike = () => {
     fetch(`/api/getLikeAndDisLike/${_id}`)
@@ -89,7 +89,7 @@ const CommentBox = ({
         {comment}
       </p>
       <div className="w-full flex justify-between items-center">
-        <span className="text-black/40 font-light text-2xl">1403/10/5</span>
+        <span className="text-black/40 font-light text-2xl">{date}</span>
 
         <div className="flex gap-2">
           <button onClick={() => likeHandler(_id)}>
