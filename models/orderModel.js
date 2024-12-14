@@ -35,11 +35,11 @@ const schema = new Schema(
     status: {
       type: String,
       required: true,
-      default: "wait",
     },
     authority: {
       type: String,
       unique: true,
+      sparse: true,
     },
     refId: {
       type: String,

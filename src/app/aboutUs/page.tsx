@@ -2,7 +2,10 @@
 import React, { memo } from "react";
 import Image from "next/image";
 import Hr from "@/components/modules/Hr";
-import Aos from "../../../utils/Aos";
+import dynamic from "next/dynamic";
+const Aos = dynamic(() => import("../../../utils/Aos"), {
+  ssr: false,
+});
 
 const page = () => {
   return (

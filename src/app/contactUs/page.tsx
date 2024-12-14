@@ -1,7 +1,11 @@
+"use client"
 import React from "react";
-import Aos from "../../../utils/Aos";
+const Aos = dynamic(() => import("../../../utils/Aos"), {
+  ssr: false,
+});
 import ContactUsForm from "@/components/templates/contactUsForm";
-import ContactUsDescription from "@/components/templates/contactUsDescription";
+import ContactUsDescription from "../../components/templates/contactUsDescription";
+import dynamic from "next/dynamic";
 
 const ContactUs = () => {
   return (

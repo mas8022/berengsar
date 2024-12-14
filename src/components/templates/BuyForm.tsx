@@ -54,13 +54,17 @@ const BuyForm: React.FC<{ name: string; myLocation: ILocation }> = ({
 
   const onSubmit = async (values: FormValues) => {
     setLoading(true);
-    await fetch("/api/checkout", {
+    await fetch("/api/checkout/payment", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({ ...values, name }),
-    });
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        window.location.href = data.paymentUrl;
+      });
     setLoading(false);
   };
 

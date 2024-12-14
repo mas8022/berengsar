@@ -3,19 +3,20 @@ import productModel from "../../../../../models/product.js";
 import userModel from "../../../../../models/user.js";
 import { Me } from "../../../../../utils/me.js";
 import orderModel from "../../../../../models/orderModel.js";
-import useZarinpal from "../../../../../utils/zarinpal.js";
+import { createPayment } from "../../../../../utils/zarinpal.js";
+import { NextResponse } from "next/server";
 import { redirect } from "next/navigation";
 
 export async function POST(req) {
   try {
     const { province, city, postalCode, fullAddress, name } = await req.json();
 
-    connectToDb();
+    await connectToDb();
 
     const meData = await Me();
 
     await userModel.findOneAndUpdate(
-      { _id: meData, _id },
+      { _id: meData._id },
       {
         $set: {
           location: {
@@ -29,7 +30,10 @@ export async function POST(req) {
     );
 
     const updatedProduct = await productModel.findOneAndUpdate(
-      { name, count: { $gt: 0 } },
+      {
+        name: name.trim(),
+        count: { $gt: 0 },
+      },
       { $inc: { count: -1 } },
       { new: true }
     );
@@ -41,21 +45,21 @@ export async function POST(req) {
       });
     }
 
+    const product = await productModel.findOne({ name: name.trim() }, "price");
+    const price = product.price;
+
     const order = new orderModel({
       user: meData._id,
       province,
       city,
       postalCode,
       fullAddress,
-      name,
+      name: name.trim(),
       price,
       status: "paying",
     });
 
-    const product = await productModel.findOne({ name }, "price");
-    const price = product?.price;
-
-    const { success, authority, paymentUrl } = await useZarinpal.createPayment({
+    const { success, authority, paymentUrl } = await createPayment({
       amount: price,
       description: `پرداخت برای سفارش شماره ${order._id}`,
       mobile: meData.phone,
@@ -74,10 +78,9 @@ export async function POST(req) {
 
     order.authority = authority;
 
-    order.save();
+    await order.save();
 
-    return redirect(paymentUrl);
-
+    return NextResponse.json({ paymentUrl });
   } catch (error) {
     return Response.json({ message: "اینترنت خود را چک کنید", status: 500 });
   }

@@ -1,7 +1,10 @@
 "use client";
 import React from "react";
-import Aos from "../../../utils/Aos";
+const Aos = dynamic(() => import("../../../utils/Aos"), {
+  ssr: false,
+});
 import CategoryContainer from "./CategoryContainer";
+import dynamic from "next/dynamic";
 
 const Landing = () => {
   return (

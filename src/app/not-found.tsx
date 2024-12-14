@@ -1,6 +1,10 @@
+"use client"
 import React from "react";
-import Aos from "../../utils/Aos";
+const Aos = dynamic(() => import("../../utils/Aos"), {
+  ssr: false,
+});
 import Link from "next/link";
+import dynamic from "next/dynamic";
 
 const NotFoundPage = () => {
   return (

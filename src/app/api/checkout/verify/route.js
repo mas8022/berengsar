@@ -1,37 +1,43 @@
-import { NextResponse } from "next/server";
 import connectToDb from "../../../../../configs/db.ts";
 import orderModel from "../../../../../models/orderModel.js";
-import useZarinpal from "../../../../../utils/zarinpal.js";
 import { redirect } from "next/navigation";
+import { verifyPayment } from "../../../../../utils/zarinpal.js";
+import { NextResponse } from "next/server";
 
 export async function GET(req) {
   try {
-    const { searchParams } = await req.nextUrl;
-    const { Authority: authority, status } = Object.fromEntries(
-      searchParams.entries()
-    );
+    const authority = req.nextUrl.searchParams.get("Authority");
+    const status = req.nextUrl.searchParams.get("Status");
 
-    connectToDb();
+    await connectToDb();
 
     const checkout = await orderModel.findOne({ authority });
 
     if (!checkout) {
-      return redirect(`/paymentResult?status=${404}&receipt=${false} `);
+      return NextResponse.redirect(`http://localhost:3000/paymentResult?status=404&receipt=false}`);
     }
 
-    const { success, refId } = await useZarinpal.verifyPayment();
+    const { success, refId } = await verifyPayment({
+      authority: checkout.authority,
+      amount: checkout.price,
+    });
+
+    console.log("Ref Id =>", refId);
+    
 
     if (!success) {
-      return redirect(`/paymentResult?status=${403}&receipt=${refId} `);
+      return NextResponse.redirect(`http://localhost:3000/paymentResult?status=403&receipt=false`);
     }
 
-    await orderModel.findOneAndUpdate(
-      { authority },
-      { status: "success", receipt: refId }
-    );
+    checkout.status = "success";
+    checkout.receipt = refId;
 
-    return redirect(`/paymentResult?status=${201}&receipt=${refId} `);
+    await checkout.save();
+
+    console.log("refId: ", refId);
+
+    return NextResponse.redirect(`http://localhost:3000/paymentResult?status=201&receipt=${refId}`);
   } catch (error) {
-    return redirect(`/paymentResult?status=${500}&receipt=${refId} `);
+    return NextResponse.redirect(`http://localhost:3000/paymentResult?status=500&receipt=false`);
   }
 }

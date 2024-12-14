@@ -5,7 +5,10 @@ import { MoonLoader } from "react-spinners";
 import toast from "react-hot-toast";
 import { logoutHandler } from "../../../utils/authTools";
 import { useSanitizeInput } from "../../../utils/useSanitizeInput";
-import Aos from "../../../utils/Aos";
+import dynamic from "next/dynamic";
+const Aos = dynamic(() => import("../../../utils/Aos"), {
+  ssr: false,
+});
 
 const emailRegex = /[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/;
 
