@@ -3,8 +3,8 @@ const { cookies } = require("next/headers");
 
 export async function POST() {
   try {
-    cookies().delete("token");
-    cookies().delete("refresh-token");
+    (await cookies()).delete("token");
+    (await cookies()).delete("refresh-token");
 
     revalidatePath('/', "layout")
 

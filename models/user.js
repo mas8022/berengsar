@@ -1,6 +1,13 @@
-import mongoose from "mongoose";
+import mongoose, { Schema } from "mongoose";
 
-const schema = {
+const locationSchema = new Schema({
+  province: { type: String, required: true },
+  city: { type: String, required: true },
+  postalCode: { type: String, required: true },
+  fullAddress: { type: String, required: true },
+});
+
+const schema = new Schema({
   fullName: {
     type: String,
     required: true,
@@ -31,7 +38,10 @@ const schema = {
     type: String,
     required: true,
   },
-};
+  location: {
+    type: locationSchema,
+  },
+});
 
 const model = mongoose.models?.User || mongoose.model("User", schema);
 

@@ -63,7 +63,6 @@ export default function Login() {
         } catch (error: unknown) {
           setLoading(false);
 
-          // Narrowing the error type
           if (error instanceof Error) {
             toast.error(`خطایی رخ داد: ${error.message}`);
           } else {
@@ -117,7 +116,7 @@ export default function Login() {
         )}
         <button
           type="submit"
-          className="w-full h-14 rounded-lg border-0 h-[4.5rem] text-[1.8rem] bg-second active:bg-second/70 text-white flex items-center justify-center"
+          className="w-full rounded-lg border-0 h-[4.5rem] text-[1.8rem] bg-second active:bg-second/70 text-white flex items-center justify-center"
         >
           {loading ? <MoonLoader size={20} color="#fff" /> : <span>ورود</span>}
         </button>

@@ -38,12 +38,12 @@ export async function POST(req) {
 
     const newAccessToken = generateToken({ email }, process.env.privateKey);
 
-    await cookies().set("token", newAccessToken, {
+    (await cookies()).set("token", newAccessToken, {
       httpOnly: true,
       path: "/",
     });
 
-    await cookies().set("refresh-token", refreshToken, {
+    (await cookies()).set("refresh-token", refreshToken, {
       httpOnly: true,
       path: "/",
       expires: new Date().getTime() + 15 * 24 * 60 * 60 * 1000,
@@ -55,7 +55,6 @@ export async function POST(req) {
       message: "با موفقیت وارد حساب قبل خود شدید",
       status: 200,
     });
-    
   } catch (error) {
     return Response.json({ message: "اینترنت خود را چک کنید", status: 500 });
   }

@@ -69,11 +69,11 @@ export async function POST(req) {
       roll: !!admin ? "USER" : "ADMIN",
     });
 
-    await cookies().set("token", token, {
+    (await cookies()).set("token", token, {
       httpOnly: true,
       path: "/",
     });
-    await cookies().set("refresh-token", refreshToken, {
+    (await cookies()).set("refresh-token", refreshToken, {
       httpOnly: true,
       path: "/",
       expires: new Date().getTime() + 15 * 24 * 60 * 60 * 1000,
