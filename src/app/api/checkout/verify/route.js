@@ -1,6 +1,5 @@
 import connectToDb from "../../../../../configs/db.ts";
 import orderModel from "../../../../../models/orderModel.js";
-import { redirect } from "next/navigation";
 import { verifyPayment } from "../../../../../utils/zarinpal.js";
 import { NextResponse } from "next/server";
 

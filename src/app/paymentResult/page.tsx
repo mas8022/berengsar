@@ -12,11 +12,11 @@ const Aos = dynamic(() => import("../../../utils/Aos"), {
 });
 
 const Page = () => {
-  const searchParams = useSearchParams(); // استفاده از هوک
+  const searchParams = useSearchParams();
   const status = searchParams.get("status");
   const receipt = searchParams.get("receipt") || false;
 
-  console.log(status, receipt); // وضعیت و رسید را در کنسول نمایش می‌دهد
+  console.log(status, receipt);
 
   return (
     <div className="w-full h-screen center bg-second px-6">

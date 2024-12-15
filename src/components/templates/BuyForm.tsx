@@ -13,7 +13,7 @@ type FormValues = {
   fullAddress: string;
 };
 
-const BuyForm: React.FC<{ name: string; myLocation: ILocation }> = ({
+const BuyForm: React.FC<{ name: string; myLocation: ILocation, count: number }> = ({
   name,
   myLocation,
 }) => {
@@ -108,7 +108,7 @@ const BuyForm: React.FC<{ name: string; myLocation: ILocation }> = ({
                 name="city"
                 className="w-[30rem] h-20 p-4 bg-second/30 rounded-full bg-center text-2xl outline-none focus:outline-none"
                 disabled={!values.province}
-                value={values.city} // Controlled: bind to Formik state
+                value={values.city}
               >
                 <option value="" disabled>
                   {values.province
@@ -161,6 +161,26 @@ const BuyForm: React.FC<{ name: string; myLocation: ILocation }> = ({
           </div>
 
           <div className="flex flex-col gap-4">
+            <div className="xxd:hidden w-full h-28 text-emerald-600/90 text-2xl center flex-col gap-4 font-light p-4 mb-4">
+              <div className="w-full flex justify-between">
+                <span>هزینه محصول:</span>
+                <p className="font-light text-2xl text-emerald-600">
+                  870,000<span className="opacity-0">.</span>ریال
+                </p>
+              </div>
+              <div className="w-full flex justify-between border-b-2 border-b-second pb-3">
+                <span>هزینه ارسال:</span>
+                <p className="font-light text-2xl text-emerald-600">
+                  870,000<span className="opacity-0">.</span>ریال
+                </p>
+              </div>
+              <div className="w-full flex justify-between">
+                <span>هزینه کل:</span>
+                <p className="font-light text-2xl text-emerald-600">
+                  870,000<span className="opacity-0">.</span>ریال
+                </p>
+              </div>
+            </div>
             <p className="p-4 rounded-lg bg-second/20 text-emerald-700 font-light text-2xl sm:text-start text-center">
               بعد از خرید اول اطلاعات شما ذخیره میشود و برای دفعه بعد دیگر نیاز
               به وارد کردن اطلاعات ندارید
