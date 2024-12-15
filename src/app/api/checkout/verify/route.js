@@ -7,7 +7,6 @@ import { NextResponse } from "next/server";
 export async function GET(req) {
   try {
     const authority = req.nextUrl.searchParams.get("Authority");
-    const status = req.nextUrl.searchParams.get("Status");
 
     await connectToDb();
 
