@@ -20,9 +20,6 @@ export async function GET(req) {
       amount: checkout.price,
     });
 
-    console.log("Ref Id =>", refId);
-    
-
     if (!success) {
       return NextResponse.redirect(`http://localhost:3000/paymentResult?status=403&receipt=false`);
     }
@@ -31,8 +28,6 @@ export async function GET(req) {
     checkout.receipt = refId;
 
     await checkout.save();
-
-    console.log("refId: ", refId);
 
     return NextResponse.redirect(`http://localhost:3000/paymentResult?status=201&receipt=${refId}`);
   } catch (error) {

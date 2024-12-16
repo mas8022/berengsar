@@ -88,7 +88,7 @@ const Ue: React.FC<UeProps> = memo(({ className: classes, children }) => {
 
   const { ref, inView } = useInView({
     triggerOnce: true,
-    threshold: 0.1,
+    threshold: 0,
   });
 
   useEffect(() => {

@@ -16,8 +16,6 @@ const Page = () => {
   const status = searchParams.get("status");
   const receipt = searchParams.get("receipt") || false;
 
-  console.log(status, receipt);
-
   return (
     <div className="w-full h-screen center bg-second px-6">
       <Aos />
