@@ -10,7 +10,7 @@ export async function POST(req) {
     const code = Math.floor(10000 + Math.random() * 90000).toString();
 
     const date = new Date();
-    const expTime = date.getDate() + 120000;
+    const expTime = date.getTime() + 120000;
 
     const { phone } = await req.json();
     if (!iranianPhoneRegex.test(phone)) {
