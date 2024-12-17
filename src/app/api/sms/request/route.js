@@ -53,7 +53,7 @@ export async function POST(req) {
       }
     );
 
-    return NextResponse.json({ message: "پیامک ارسال شد", status: 200 });
+    return NextResponse.json({ message: "پیامک ارسال شد", status: 201 });
   } catch (error) {
     return NextResponse.json(
       { message: "اینترنت خود را چک کنید" },

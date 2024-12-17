@@ -24,7 +24,7 @@ const schema = new Schema({
   phone: {
     type: Number,
     required: true,
-    index: true,
+    unique: true,
   },
   check: {
     type: Boolean,
