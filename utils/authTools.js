@@ -2,6 +2,8 @@ import { compare, hash } from "bcryptjs";
 import toast from "react-hot-toast";
 import swal from "sweetalert";
 import { sign, verify } from "jsonwebtoken";
+import { notFound, redirect } from "next/navigation";
+import connectToDb from "../configs/db";
 
 function generateToken(data, processEnvKey) {
   const token = sign(data, processEnvKey, {

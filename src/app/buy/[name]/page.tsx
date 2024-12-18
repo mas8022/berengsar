@@ -32,9 +32,9 @@ const Buy = async ({ params }: { params: { name: string } }) => {
         </div>
 
         <div className="xxd:flex hidden !w-[50rem] p-12 rounded-3xl flex-col items-center justify-between bg-second/20 shadow-md gap-4">
-          <p className="font-light text-4xl text-emerald-600">{name}</p>
+          <p className="font-light text-4xl text-emerald-600">{product.name}</p>
           <Image
-            src={"/images/test.png"}
+            src={product.image}
             width={400}
             height={500}
             alt="عکس محصول"

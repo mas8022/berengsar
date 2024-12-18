@@ -3,10 +3,10 @@ import React from "react";
 const Aos = dynamic(() => import("../../../utils/Aos"), {
   ssr: false,
 });
-import CategoryContainer from "./CategoryContainer";
+import ProductsContainer from "../templates/ProductsContainer";
 import dynamic from "next/dynamic";
 
-const Landing = () => {
+const Landing = ({ data }: { data: { name: string; image: string }[] }) => {
   return (
     <div
       className="w-full min-h-screen flex flex-col items-center sm:px-20 p-4 py-44 image"
@@ -29,7 +29,7 @@ const Landing = () => {
           برنج‌های مازندرانی مستقیم از تولیدکننده به خانه شما می‌آید. همین حالا
           سفارش دهید و لذت برنج مازندرانی را بچشید
         </p>
-        <CategoryContainer />
+        <ProductsContainer data={JSON.parse(JSON.stringify(data))} />
       </div>
     </div>
   );
