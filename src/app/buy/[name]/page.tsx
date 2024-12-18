@@ -14,7 +14,7 @@ const Buy = async ({ params }: { params: { name: string } }) => {
   const product = await productModel.findOne({ name: name.trim() });
 
   const meData = await Me();
-  const myLocation = meData.location;
+  const myLocation = meData.location || null;
 
   return !!product.count ? (
     !!meData ? (
@@ -27,7 +27,6 @@ const Buy = async ({ params }: { params: { name: string } }) => {
           <BuyForm
             myLocation={JSON.parse(JSON.stringify(myLocation))}
             name={product.name}
-            count={product.count}
           />
         </div>
 
@@ -42,23 +41,25 @@ const Buy = async ({ params }: { params: { name: string } }) => {
           />
 
           <div className="w-full h-28 text-emerald-600/90 text-2xl center flex-col gap-4 font-light p-4">
-            <div className="w-full flex justify-between">
+            <div className="w-full flex justify-between items-end">
               <span>هزینه محصول:</span>
-              <p className="font-light text-2xl text-emerald-600">
-                {product.price}
+              <p className="font-light text-3xl text-emerald-600">
+                {product.price.toLocaleString("fa-IR")}
                 <span className="opacity-0">.</span>ریال
               </p>
             </div>
-            <div className="w-full flex justify-between border-b-2 border-b-second pb-3">
+            <div className="w-full flex justify-between items-end border-b-2 border-b-second pb-3">
               <span>هزینه ارسال:</span>
-              <p className="font-light text-2xl text-emerald-600">
-                870,000<span className="opacity-0">.</span>ریال
+              <p className="font-light text-3xl text-emerald-600">
+                {(870000).toLocaleString("fa-IR")}
+                <span className="opacity-0">.</span>ریال
               </p>
             </div>
-            <div className="w-full flex justify-between">
+            <div className="w-full flex justify-between items-end text-3xl">
               <span>هزینه کل:</span>
-              <p className="font-light text-2xl text-emerald-600">
-                870,000<span className="opacity-0">.</span>ریال
+              <p className="font-light text-4xl text-emerald-600 flex">
+                {(10300000).toLocaleString("fa-IR")}
+                <span className="opacity-0">.</span>ریال
               </p>
             </div>
           </div>

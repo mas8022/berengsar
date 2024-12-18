@@ -1,4 +1,3 @@
-import Product from "@/components/modules/Product";
 import React from "react";
 import productModel from "../../../models/product";
 

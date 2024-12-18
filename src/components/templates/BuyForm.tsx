@@ -13,12 +13,14 @@ type FormValues = {
   fullAddress: string;
 };
 
-const BuyForm: React.FC<{ name: string; myLocation: ILocation, count: number }> = ({
+const BuyForm: React.FC<{ name: string; myLocation: ILocation | null }> = ({
   name,
   myLocation,
 }) => {
   const [cities, setCities] = useState<string[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
+
+  console.log("myLocation: ", myLocation);
 
   const initialValues: FormValues = {
     province: myLocation?.province ? myLocation?.province : "",
@@ -82,7 +84,7 @@ const BuyForm: React.FC<{ name: string; myLocation: ILocation, count: number }> 
                 as="select"
                 name="province"
                 className="w-[30rem] h-20 p-4 bg-second/30 rounded-full bg-center text-2xl outline-none focus:outline-none"
-                value={values.province} // Controlled: bind to Formik state
+                value={values.province}
                 onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
                   handleProvinceChange(e, setFieldValue)
                 }

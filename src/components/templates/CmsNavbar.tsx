@@ -154,7 +154,7 @@ const CmsNavbar: React.FC = () => {
           </div>
         </Side>
         <Link
-          href="/cms/cmsNotif"
+          href="/cms/contactUsMessages"
           className="relative sm:size-20 size-14 bg-black/10 dark:bg-first/5 rounded-full flex items-center justify-center cursor-pointer active:scale-95 active:bg-first transition-all duration-200"
         >
           {messageLength ? (
