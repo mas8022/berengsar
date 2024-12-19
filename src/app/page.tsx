@@ -10,7 +10,7 @@ export default async function Home() {
   const products = await productModel.find({}, "name image");
 
   const siteImprovementComments = await siteImprovementCommentsModel
-    .find({ publish: false }, "comment createdAt")
+    .find({ publish: true }, "comment createdAt")
     .populate("user", "fullName")
     .sort({ _id: -1 })
     .limit(6)

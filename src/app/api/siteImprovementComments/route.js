@@ -1,7 +1,7 @@
 import { MeId } from "../../../../utils/me";
 import siteImprovementCommentModel from "../../../../models/siteImprovementComments";
-import connectToDb from "@/configs/db";
-import { useRevalidatePage } from "@/utils/useRevalidatePage";
+import connectToDb from "../../../../configs/db";
+import { revalidatePath } from "next/cache";
 
 export async function POST(req) {
   try {
@@ -24,7 +24,7 @@ export async function POST(req) {
       publish: false,
     });
 
-    useRevalidatePage();
+    revalidatePath("/", "layout");
 
     return Response.json({
       message:

@@ -1,26 +1,31 @@
-"use client";
-import React, { useEffect, useState } from "react";
-import CmsCommentSendedCart from "../../_components/modules/cmsCommentCart";
+import { siteImprovementCommentType } from "@/../../types";
+import connectToDb from "../../../../configs/db";
+import siteImprovementCommentModel from "../../../../models/siteImprovementComments";
+import CmsCommentSendedCart from "@/components/modules/CmsCommentSendedCart";
 
-const page = () => {
-  const [comments, setComments] = useState([]);
+const page = async () => {
+  connectToDb();
 
-  useEffect(() => {
-    fetch(`/api/cms/siteImprovementsComment`)
-      .then((res) => res.json())
-      .then((data) => data && setComments(data));
-  }, []);
+  const comments: siteImprovementCommentType[] =
+    await siteImprovementCommentModel
+      .find({ publish: false }, "comment user")
+      .populate<{ user: { fullName: string; email: string } }>(
+        "user",
+        "fullName email"
+      )
+      .lean<siteImprovementCommentType[]>()
+      .exec();
 
   return (
     <div>
-      <div className="w-full  flex flex-col items-end gap-40 py-[5rem] md:pr-14">
+      <div className="w-full flex flex-col items-end gap-40 py-[5rem] md:pr-14">
         <div className="w-full flex justify-center">
           {comments?.length ? (
             <div className="grid grid-cols-1 lgg:grid-cols-2  2xl:grid-cols-3 gap-8">
               {comments.map((item) => (
                 <CmsCommentSendedCart
-                  commentData={JSON.parse(JSON.stringify(item))}
-                  key={item._id}
+                  data={JSON.parse(JSON.stringify(item))}
+                  key={String(item._id)}
                 />
               ))}
             </div>

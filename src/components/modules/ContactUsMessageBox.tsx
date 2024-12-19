@@ -44,7 +44,6 @@ const ContactUsMessageBox: React.FC<ContactUsMessageBox> = memo(
           )
           .catch((error) => {
             toast.error("مشکلی رخ داده است");
-            console.error("Error deleting comment:", error);
           });
       }
 

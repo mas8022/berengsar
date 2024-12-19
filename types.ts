@@ -8,13 +8,6 @@ export interface product {
   image: string;
 }
 
-export interface ILocation {
-  province?: string;
-  city?: string;
-  postalCode?: string;
-  fullAddress?: string;
-}
-
 export interface User {
   _id: ObjectId;
   fullName: string;
@@ -25,4 +18,21 @@ export interface User {
   refreshToken: string;
   roll: "ADMIN" | "USER";
   location?: ILocation;
+}
+
+export interface ILocation {
+  province?: string;
+  city?: string;
+  postalCode?: string;
+  fullAddress?: string;
+}
+
+export interface siteImprovementCommentType {
+  _id: ObjectId | string;
+  comment: string;
+  user: {
+    _id?: ObjectId | string;
+    email?: string;
+    fullName?: string;
+  };
 }

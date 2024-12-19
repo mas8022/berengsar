@@ -22,8 +22,6 @@ const CmsNavbar: React.FC = () => {
     fetch("/api/getContactUsMessage")
       .then((res) => res.json())
       .then((data) => {
-        console.log("length: ", data.length);
-
         setMessageLength(data.length);
       });
     fetch("/api/me")

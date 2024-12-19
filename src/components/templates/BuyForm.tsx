@@ -20,8 +20,6 @@ const BuyForm: React.FC<{ name: string; myLocation: ILocation | null }> = ({
   const [cities, setCities] = useState<string[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
 
-  console.log("myLocation: ", myLocation);
-
   const initialValues: FormValues = {
     province: myLocation?.province ? myLocation?.province : "",
     city: myLocation?.city ? myLocation?.city : "",
