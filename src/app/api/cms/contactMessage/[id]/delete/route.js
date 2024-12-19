@@ -1,6 +1,7 @@
 import { revalidatePath } from "next/cache";
 import connectToDb from "../../../../../../../configs/db.ts";
 import contactUsMessageModel from "../../../../../../../models/contactUsMessage.js";
+import { NextResponse } from "next/server";
 
 export async function DELETE(req, { params }) {
   try {
@@ -14,8 +15,8 @@ export async function DELETE(req, { params }) {
 
     revalidatePath("/", "layout");
 
-    return Response.json({ message: "پیام پاک شد", status: 200 });
+    return NextResponse.json({ message: "پیام پاک شد", status: 200 });
   } catch (error) {
-    return Response.json({ message: "اینترنت خود را چک کنید", status: 500 });
+    return NextResponse.json({ message: "اینترنت خود را چک کنید", status: 500 });
   }
 }

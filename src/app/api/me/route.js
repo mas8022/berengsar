@@ -1,3 +1,4 @@
+import { NextResponse } from "next/server";
 import { Me } from "../../../../utils/me";
 import { revalidatePath } from "next/cache";
 
@@ -10,9 +11,9 @@ export async function GET() {
       return Response.json(me);
     }
 
-    return Response.json(null);
+    return NextResponse.json(null);
   } catch (error) {
-    return Response.json(
+    return NextResponse.json(
       { message: "اینترنت خود را چک کنید" },
       { status: 500 }
     );

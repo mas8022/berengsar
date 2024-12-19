@@ -39,7 +39,7 @@ export async function POST(req) {
     );
 
     if (!updatedProduct) {
-      return Response.json({
+      return NextResponse.json({
         message: "موجودی کالا در انبار کافی نیست",
         status: 404,
       });
@@ -70,7 +70,7 @@ export async function POST(req) {
 
       order.status = "fail";
 
-      return Response.json({
+      return NextResponse.json({
         message: "عملیات با شکست روبرو شد",
         status: 401,
       });
@@ -80,8 +80,8 @@ export async function POST(req) {
 
     await order.save();
 
-    return NextResponse.json({ paymentUrl });
+    return NextNextResponse.json({ paymentUrl });
   } catch (error) {
-    return Response.json({ message: "اینترنت خود را چک کنید", status: 500 });
+    return NextResponse.json({ message: "اینترنت خود را چک کنید", status: 500 });
   }
 }

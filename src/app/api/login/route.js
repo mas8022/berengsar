@@ -7,6 +7,7 @@ import {
   verifyPassword,
 } from "../../../../utils/authTools.js";
 import { revalidatePath } from "next/cache";
+import { NextResponse } from "next/server";
 
 export async function POST(req) {
   try {
@@ -16,7 +17,7 @@ export async function POST(req) {
     const user = await userModel.findOne({ email });
     const isValidPassword = await verifyPassword(password, user.password);
     if (!isValidPassword || !user) {
-      return Response.json({
+      return NextResponse.json({
         message: "رمز عبور یا ایمیل شما نا معتبر است",
         status: 401,
       });
@@ -51,11 +52,11 @@ export async function POST(req) {
 
     revalidatePath("/", "layout");
 
-    return Response.json({
+    return NextResponse.json({
       message: "با موفقیت وارد حساب قبل خود شدید",
       status: 200,
     });
   } catch (error) {
-    return Response.json({ message: "اینترنت خود را چک کنید", status: 500 });
+    return NextResponse.json({ message: "اینترنت خود را چک کنید", status: 500 });
   }
 }

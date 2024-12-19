@@ -1,6 +1,7 @@
 import { revalidatePath } from "next/cache";
 import disLikeModel from "../../../../../../models/disLike";
 import { MeId } from "../../../../../../utils/me";
+import { NextResponse } from "next/server";
 
 export async function POST(req, { params }) {
   try {
@@ -9,7 +10,7 @@ export async function POST(req, { params }) {
     const meId = await MeId();
 
     if (!meId) {
-      return Response.json({
+      return NextResponse.json({
         message: "ابتدا در سایت ثبت نام کنید",
         status: 400,
       });
@@ -24,7 +25,7 @@ export async function POST(req, { params }) {
     );
 
     if (!!likeBefore) {
-      return Response.json({ message: "دیس لایک کرده بودید" });
+      return NextResponse.json({ message: "دیس لایک کرده بودید" });
     }
 
     await disLikeModel.create({
@@ -34,8 +35,8 @@ export async function POST(req, { params }) {
 
     revalidatePath("/", "page");
 
-    return Response.json({ message: "با موفقیت دیس لایک شد", status: 200 });
+    return NextResponse.json({ message: "با موفقیت دیس لایک شد", status: 200 });
   } catch (error) {
-    return Response.json({ message: "اینترنت خود را چک کنید", status: 500 });
+    return NextResponse.json({ message: "اینترنت خود را چک کنید", status: 500 });
   }
 }

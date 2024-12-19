@@ -1,6 +1,7 @@
 import { revalidatePath } from "next/cache";
 import connectToDb from '../../../../configs/db.ts'
 import contactUsMessageModel from '../../../../models/contactUsMessage.js'
+import { NextResponse } from "next/server";
 
 export async function GET() {
   try {
@@ -11,8 +12,8 @@ export async function GET() {
 
     revalidatePath("/", "layout");
 
-    return Response.json(messages);
+    return NextResponse.json(messages);
   } catch (error) {
-    return Response.json({ message: "اینترنت خود را چک کنید", status: 500 });
+    return NextResponse.json({ message: "اینترنت خود را چک کنید", status: 500 });
   }
 }

@@ -26,6 +26,7 @@ export async function POST(req) {
 
     const date = new Date();
     const now = date.getTime();
+    
     if (now > isOtp.expTime) {
       return NextResponse.json({
         message: "کد منقضی شده",
