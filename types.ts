@@ -3,9 +3,9 @@ import { ObjectId } from "mongoose";
 export interface product {
   _id: ObjectId;
   name: string;
-  price: Number;
-  count: Number;
-  image: String;
+  price: number;
+  count: number;
+  image: string;
 }
 
 export interface ILocation {
