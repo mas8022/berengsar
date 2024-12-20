@@ -36,3 +36,19 @@ export interface siteImprovementCommentType {
     fullName?: string;
   };
 }
+
+export interface Address {
+  _id: ObjectId | string;
+  user?: {
+    _id?: ObjectId | string;
+    fullName?: string;
+    phone?: number;
+  };
+  province: string;
+  city: string;
+  postalCode: string;
+  fullAddress: string;
+  name: string;
+  createdAt: Date;
+}
+

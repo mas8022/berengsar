@@ -54,33 +54,5 @@ async function MeId() {
     return false;
   }
 }
-async function isMe() {
-  try {
-    connectToDb();
-    const token = (await cookies()).get("token")?.value;
-    const tokenPayload = verifyToken(token, process.env.privateKey);
-    if (!tokenPayload) {
-      return false;
-    }
 
-    const user = await userModel.findOne(
-      {
-        $or: [
-          { email: tokenPayload?.userEmail },
-          { email: tokenPayload?.email },
-        ],
-      },
-      "_id"
-    );
-
-    if (user) {
-      return true;
-    } else {
-      return false;
-    }
-  } catch (error) {
-    return false;
-  }
-}
-
-export { Me, isMe, MeId };
+export { Me, MeId };

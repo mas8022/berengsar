@@ -36,7 +36,6 @@ export async function PUT(req, { params }) {
       status: 200,
     });
   } catch (error) {
-    console.error(error);
     return NextResponse.json({
       message: "اینترنت خود را چک کنید",
       status: 500,

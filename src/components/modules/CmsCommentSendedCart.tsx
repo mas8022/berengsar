@@ -44,8 +44,6 @@ const CmsCommentSendedCart = memo(
           fetch(`/api/cms/siteImprovementsComment/${id}`, { method: "DELETE" })
             .then((res) => res.json())
             .then((result) => {
-              console.log("result: ", result);
-
               if (result.status === 200) {
                 toast.success(result.message);
               } else {
