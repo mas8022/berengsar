@@ -1,10 +1,8 @@
 "use client";
 import React from "react";
-const Aos = dynamic(() => import("../../../utils/Aos"), {
-  ssr: false,
-});
+
 import ProductsContainer from "../templates/ProductsContainer";
-import dynamic from "next/dynamic";
+import Aos from "../../../utils/Aos";
 
 const Landing = ({ data }: { data: { name: string; image: string }[] }) => {
   return (

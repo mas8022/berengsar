@@ -1,15 +1,12 @@
 "use client";
 
 import React from "react";
-import dynamic from "next/dynamic";
+
 import { useSearchParams } from "next/navigation";
 import CheckIcon from "../../components/svgs/checkout";
 import CloseIcon from "../../components/svgs/close";
 import Link from "next/link";
-
-const Aos = dynamic(() => import("../../../utils/Aos"), {
-  ssr: false,
-});
+import Aos from "../../../utils/Aos";
 
 const Page = () => {
   const searchParams = useSearchParams();
