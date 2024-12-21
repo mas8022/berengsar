@@ -12,7 +12,7 @@ interface IUser {
 }
 
 interface ISiteImprovementComment extends Document {
-  _id: Schema.Types.ObjectId;
+  _id: Schema.Types.ObjectId | string;
   comment: string;
   user: IUser;
   createdAt: Date;
@@ -42,10 +42,10 @@ const CommentsSlider = ({
       loop={true}
       className="!py-10"
     >
-      {comments?.length
+      {comments.length
         ? comments.map((item: ISiteImprovementComment) => (
             <SwiperSlide key={item._id.toString()}>
-              <CommentBox data={JSON.parse(JSON.stringify(item))} />
+              <CommentBox data={item as any} />
             </SwiperSlide>
           ))
         : null}

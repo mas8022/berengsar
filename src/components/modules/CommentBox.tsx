@@ -38,7 +38,7 @@ const CommentBox = ({
     getLikeAndDisLike();
   }, []);
 
-  const likeHandler = async (id: Schema.Types.ObjectId) => {
+  const likeHandler = async (id: Schema.Types.ObjectId | string) => {
     await fetch(
       `/api/siteImprovementComments/${id}/likeSiteImprovementComments`,
       {
@@ -49,8 +49,6 @@ const CommentBox = ({
       .then((result) => {
         if (result.status === 200) {
           toast.success(result.message);
-        } else if (result.status === 400) {
-          toast.error(result.message);
         } else {
           toast.error(result.message);
         }
@@ -58,7 +56,7 @@ const CommentBox = ({
     getLikeAndDisLike();
   };
 
-  const disLikeHandler = async (id: Schema.Types.ObjectId) => {
+  const disLikeHandler = async (id: Schema.Types.ObjectId | string) => {
     await fetch(
       `/api/siteImprovementComments/${id}/dislikeSiteImprovementComments`,
       {
@@ -69,8 +67,6 @@ const CommentBox = ({
       .then((result) => {
         if (result.status === 200) {
           toast.success(result.message);
-        } else if (result.status === 400) {
-          toast.error(result.message);
         } else {
           toast.error(result.message);
         }

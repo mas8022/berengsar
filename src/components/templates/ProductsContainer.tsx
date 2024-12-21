@@ -17,7 +17,7 @@ const ProductContainer = ({
       </h2>
 
       <div className="flex flex-wrap items-center justify-center llg:p-10 rounded-3xl gap-8">
-        {data?.length ? (
+        {data.length ? (
           data.map((item, index) => <Product key={index} data={item} />)
         ) : (
           <p className="text-center text-lg font-semibold text-gray-600">

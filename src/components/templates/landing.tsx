@@ -1,6 +1,4 @@
 "use client";
-import React from "react";
-
 import ProductsContainer from "../templates/ProductsContainer";
 import Aos from "../../../utils/Aos";
 import { ObjectId } from "mongoose";
@@ -11,15 +9,7 @@ const Landing = ({
   data: { _id: string | ObjectId; name: string; image: string }[];
 }) => {
   return (
-    <div
-      className="w-full min-h-screen flex flex-col items-center sm:px-20 p-4 py-44 image"
-      style={{
-        backgroundImage: "url('/images/bg.png')",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
-      }}
-    >
+    <div className="w-full min-h-screen flex flex-col items-center sm:px-20 p-4 py-44 image landingImage">
       <div className="w-full flex flex-col items-center gap-8">
         <Aos />
         <h1

@@ -1,5 +1,5 @@
 import mongoose, { Schema } from "mongoose";
-import userModel from '../models/user'
+import "../models/user";
 
 const schema = new Schema(
   {
@@ -20,6 +20,8 @@ const schema = new Schema(
   },
   {
     timestamps: true,
+    toJSON: true,
+    toObject: true,
   }
 );
 

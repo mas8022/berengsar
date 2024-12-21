@@ -21,18 +21,15 @@ export const metadata = {
 };
 
 export default async function Home() {
-  
-  connectToDb();
+  await connectToDb();
   const products = await productModel.find({}, "name image");
 
   const siteImprovementComments = await siteImprovementCommentsModel
     .find({ publish: true }, "comment createdAt")
-    .populate("user", "fullName")
     .sort({ _id: -1 })
+    .populate("user", "fullName")
     .limit(6)
     .lean();
-
-
 
   return (
     <div className="w-full overflow-y-scroll flex flex-col items-center">
