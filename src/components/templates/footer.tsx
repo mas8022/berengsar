@@ -47,7 +47,7 @@ const Footer = () => {
               {products?.length &&
                 products.map((item) => (
                   <Link
-                    href={`/buy/${item.name}`}
+                    href={`/buy-rice/${item.name}`}
                     key={item._id.toString()}
                     className="text-[1.4rem] lg:text-[1.7rem] text-black/90 cursor-pointer active:text-black/20 font-light"
                   >

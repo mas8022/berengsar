@@ -23,7 +23,7 @@ const Product = ({ data }: { data: { name: string; image: string } }) => {
           {data.name}
         </h2>
         <Link
-          href={`/buy/${data.name}`}
+          href={`/buy-rice/${data.name}`}
           className="w-full btn bg-green-500 text-first text-3xl center"
         >
           خرید

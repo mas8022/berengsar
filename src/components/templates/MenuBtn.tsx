@@ -66,7 +66,7 @@ const MenuBtn = () => {
               >
                 {products?.length &&
                   products.map((item) => (
-                    <Link href={`/buy/${item.name}`} key={item._id.toString()}>
+                    <Link href={`/buy-rice/${item.name}`} key={item._id.toString()}>
                       طارم هاشمی پنج کیلو
                     </Link>
                   ))}

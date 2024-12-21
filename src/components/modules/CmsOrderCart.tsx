@@ -17,7 +17,6 @@ const CmsOrderCart = ({ data }: { data: Address }) => {
     createdAt,
   } = data;
 
-  console.log(data);
 
   const elapsedTime = useElapsedTime(createdAt);
 

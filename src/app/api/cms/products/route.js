@@ -6,7 +6,6 @@ export async function GET() {
   try {
     await connectToDb();
     const products = await productModel.find({}, "name");
-    console.log("products: ", products);
 
     return NextResponse.json(products);
   } catch (error) {
