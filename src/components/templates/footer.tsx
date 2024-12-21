@@ -1,9 +1,25 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import FooterCommentBox from "./FooterCommentBox";
+import { ObjectId } from "mongoose";
 
 const Footer = () => {
+  const [products, setProducts] = useState<
+    { name: string; _id: string | ObjectId }[] | undefined
+  >();
+
+  useEffect(() => {
+    fetch("/api/cms/products")
+      .then((res) => res.json())
+      .then((data) => {
+        
+
+        setProducts(data);
+      });
+  }, []);
+
   return (
     <div className="w-full flex flex-col items-center bg-gradient-to-b from-[#D8E27C] to-[#84B8AC] footer-shadow">
       <div className="w-full h-auto lg:h-[42rem] px-6 sm:px-[5rem] lg:px-[3rem] xl:px-[15rem] flex flex-col mmd:flex-row justify-between items-center mmd:items-start py-20 gap-16 lg:gap-8">
@@ -28,31 +44,18 @@ const Footer = () => {
               <p className="text-[1.7rem] lg:text-[2rem] border-b-[1px] border-black/50 mb-4">
                 محصولات
               </p>
-              <Link
-                href={"/buy/طارم هاشمی پنج کیلو"}
-                className="text-[1.4rem] lg:text-[1.7rem] text-black/90 cursor-pointer active:text-black/20 font-light"
-              >
-                طارم هاشمی پنج کیلو
-              </Link>
-              <Link
-                href={"/buy/طارم هاشمی ده کیلو"}
-                className="text-[1.4rem] lg:text-[1.7rem] text-black/90 cursor-pointer active:text-black/20 font-light"
-              >
-                طارم هاشمی ده کیلو
-              </Link>
-              <Link
-                href={"/buy/طارم بینام پنج کیلو"}
-                className="text-[1.4rem] lg:text-[1.7rem] text-black/90 cursor-pointer active:text-black/20 font-light"
-              >
-                طارم بینام پنج کیلو
-              </Link>
-              <Link
-                href={"/buy/طارم بینام ده کیلو"}
-                className="text-[1.4rem] lg:text-[1.7rem] text-black/90 cursor-pointer active:text-black/20 font-light"
-              >
-                طارم بینام ده کیلو
-              </Link>
+              {products?.length &&
+                products.map((item) => (
+                  <Link
+                    href={`/buy/${item.name}`}
+                    key={item._id.toString()}
+                    className="text-[1.4rem] lg:text-[1.7rem] text-black/90 cursor-pointer active:text-black/20 font-light"
+                  >
+                    {item.name}
+                  </Link>
+                ))}
             </ul>
+
             <ul className="flex flex-col">
               <p className="text-[1.7rem] lg:text-[2rem] border-b-[1px] border-black/50 mb-4">
                 دسترسی سریع

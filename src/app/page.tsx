@@ -5,6 +5,21 @@ import connectToDb from "../../configs/db";
 import { Ue } from "../../utils/ultraElem";
 import productModel from "../../models/product";
 
+export const metadata = {
+  title: "خرید برنج ایرانی اصل با بهترین کیفیت - فروشگاه برنج",
+  description:
+    "فروش برنج اصیل ایرانی با کیفیت بالا و قیمت مناسب. انواع برنج شمال و جنوب ایران. تجربه‌ای بی‌نظیر از خرید برنج ایرانی اصل.",
+  keywords: [
+    "برنج ایرانی",
+    "خرید برنج",
+    "برنج با کیفیت",
+    "فروشگاه برنج",
+    "برنج شمال",
+    "برنج اصیل",
+  ],
+  author: "برنجسار",
+};
+
 export default async function Home() {
   connectToDb();
   const products = await productModel.find({}, "name image");

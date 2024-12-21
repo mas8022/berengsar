@@ -1,13 +1,26 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { FaHome, FaInfoCircle, FaPhone, FaUserCircle } from "react-icons/fa";
 import Side from "../modules/side";
 import Image from "next/image";
 import useToggle from "../../../utils/useToggle";
 import Link from "next/link";
+import { ObjectId } from "mongoose";
 
 const MenuBtn = () => {
   const [isOpen, toggleOpen] = useToggle("sidBarUlActivation");
+  const [products, setProducts] = useState<
+    { name: string; _id: string | ObjectId }[] | undefined
+  >();
+
+  useEffect(() => {
+    fetch("/api/cms/products")
+      .then((res) => res.json())
+      .then((data) => {
+        setProducts(data);
+      });
+  }, []);
+
   return (
     <Side cls="z-20 sm:hidden" sideBarName="navbarMenuSidebar">
       <div className="w-full h-full p-8 flex flex-col justify-between bg-[#84B8AC] shadow-lg">
@@ -51,18 +64,12 @@ const MenuBtn = () => {
                   isOpen ? "!h-auto  pt-4 gap-2" : "!h-0"
                 }`}
               >
-                <Link href={"/buy/طارم هاشمی پنج کیلو"}>
-                  طارم هاشمی پنج کیلو
-                </Link>
-                <Link href={"/buy/طارم هاشمی ده کیلو"}>
-                  طارم هاشمی ده کیلو
-                </Link>
-                <Link href={"/buy/طارم بینام پنج کیلو"}>
-                  طارم بینام پنج کیلو
-                </Link>
-                <Link href={"/buy/طارم بینام ده کیلو"}>
-                  طارم بینام ده کیلو
-                </Link>
+                {products?.length &&
+                  products.map((item) => (
+                    <Link href={`/buy/${item.name}`} key={item._id.toString()}>
+                      طارم هاشمی پنج کیلو
+                    </Link>
+                  ))}
               </ul>
             </ul>
 

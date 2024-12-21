@@ -1,12 +1,27 @@
-"use client"; // Ensure the component is rendered on the client side
-import React from "react";
+"use client";
+import React, { useEffect, useState } from "react";
 import MenuBtn from "./MenuBtn";
 import Link from "next/link";
+import { ObjectId } from "mongoose";
+import { MoonLoader } from "react-spinners";
 
 const UlNavbar = () => {
+  const [products, setProducts] = useState<
+    { name: string; _id: string | ObjectId }[] | undefined
+  >();
+
+  useEffect(() => {
+    fetch("/api/cms/products")
+      .then((res) => res.json())
+      .then((data) => {
+        
+
+        setProducts(data);
+      });
+  }, []);
+
   return (
     <>
-      {/* ul in desktop screen */}
       <ul className="hidden sm:flex h-16 px-10 items-center gap-10 child:font-bold child:text-2xl child:text-white bg-second rounded-3xl">
         <Link href={"/"}>خانه</Link>
 
@@ -28,30 +43,19 @@ const UlNavbar = () => {
           </svg>
 
           <ul className="w-[23rem] absolute right-0 rounded-xl top-12 mt-4 bg-second shadow-md p-6 flex flex-col gap-y-1 border-y-2 border-y-third invisible opacity-0 group-hover:visible group-hover:opacity-100 group-hover:mt-2 child:cursor-pointer child-hover:bg-black/10 child:rounded-lg child:pr-4 child:h-12 child:flex child:items-center pb-16 delay-100 child:text-first">
-            <Link
-              href={"/buy/طارم هاشمی پنج کیلو"}
-              className="text-[1.4rem] lg:text-[1.7rem] text-black/90 cursor-pointer active:text-black/20 font-light"
-            >
-              طارم هاشمی پنج کیلو
-            </Link>
-            <Link
-              href={"/buy/طارم هاشمی ده کیلو"}
-              className="text-[1.4rem] lg:text-[1.7rem] text-black/90 cursor-pointer active:text-black/20 font-light"
-            >
-              طارم هاشمی ده کیلو
-            </Link>
-            <Link
-              href={"/buy/طارم بینام پنج کیلو"}
-              className="text-[1.4rem] lg:text-[1.7rem] text-black/90 cursor-pointer active:text-black/20 font-light"
-            >
-              طارم بینام پنج کیلو
-            </Link>
-            <Link
-              href={"/buy/طارم بینام ده کیلو"}
-              className="text-[1.4rem] lg:text-[1.7rem] text-black/90 cursor-pointer active:text-black/20 font-light"
-            >
-              طارم بینام ده کیلو
-            </Link>
+            {products?.length ? (
+              products.map((item) => (
+                <Link
+                  href={`/buy/${item.name}`}
+                  key={item._id.toString()}
+                  className="text-[1.4rem] lg:text-[1.7rem] text-black/90 cursor-pointer active:text-black/20 font-light"
+                >
+                  {item.name}
+                </Link>
+              ))
+            ) : (
+              <p>در حال بارگذاری...</p>
+            )}
           </ul>
         </ul>
 
@@ -59,7 +63,6 @@ const UlNavbar = () => {
         <Link href={"/contactUs"}>تماس باما</Link>
       </ul>
 
-      {/* ul in mobile screen */}
       <MenuBtn />
     </>
   );

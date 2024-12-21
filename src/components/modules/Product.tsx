@@ -2,8 +2,6 @@ import Image from "next/image";
 import React from "react";
 import Atropos from "atropos/react";
 import Link from "next/link";
-import { ObjectId } from "mongoose";
-import { product } from "../../../types";
 
 const Product = ({ data }: { data: { name: string; image: string } }) => {
   return (
@@ -18,7 +16,7 @@ const Product = ({ data }: { data: { name: string; image: string } }) => {
           src={data.image}
           width={300}
           height={300}
-          alt="عکس محصول"
+          alt={`تصویر محصول ${data.name}`}
           className="w-full llg:h-80 object-cover rounded-xl"
         />
         <h2 className="w-full text-center llg:text-3xl text-xl font-bold tsh backdrop-blur-3xl rounded-full px-6 py-4 text-first bg-black/10">

@@ -1,4 +1,3 @@
-"use client";
 import React, { useState } from "react";
 import swal from "sweetalert";
 import toast from "react-hot-toast";
