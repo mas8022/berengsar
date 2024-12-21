@@ -22,7 +22,6 @@ const Landing = ({
     >
       <div className="w-full flex flex-col items-center gap-8">
         <Aos />
-
         <h1
           data-aos="fade-up"
           data-aos-duration="1000"

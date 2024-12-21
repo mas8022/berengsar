@@ -21,6 +21,7 @@ export const metadata = {
 };
 
 export default async function Home() {
+  
   connectToDb();
   const products = await productModel.find({}, "name image");
 
@@ -30,6 +31,8 @@ export default async function Home() {
     .sort({ _id: -1 })
     .limit(6)
     .lean();
+
+
 
   return (
     <div className="w-full overflow-y-scroll flex flex-col items-center">
